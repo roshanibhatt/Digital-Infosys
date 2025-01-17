@@ -1,13 +1,12 @@
 from django.shortcuts import render,HttpResponse
 from datetime import datetime
 from home.models import Contact
+
 # Create your views here.
 def index(request):
-    context={
-        "variable":"i am great"
-    }
+
     
-    return render(request, 'index.html',context)
+    return render(request, 'index.html')
     # return HttpResponse("This is home page")
 
 def about(request):
@@ -26,5 +25,9 @@ def contact(request):
         contact=Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         contact.save()
     return render(request,'contact.html')
+
+def search(request):
+     return render(request,'search.html')
+    # return HttpResponse("This is search page")
 
 
